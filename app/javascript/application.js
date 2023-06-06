@@ -1,8 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Greeting from './components/Greeting'
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    children: [
+      {
+        index: true,
+        element: <Greeting />,
+      },
+    ],
+  },
+]);
 
 function App() {
-  return (<h1>Hello World!</h1>);
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
 ReactDOM.render(
