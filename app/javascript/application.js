@@ -1,8 +1,31 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Greeting from './components/Greeting'
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import App from '../components/App'
+const router = createBrowserRouter([
+  {
+    path: '/',
+    children: [
+      {
+        index: true,
+        element: <Greeting />,
+      },
+    ],
+  },
+]);
 
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render(<App />, document.getElementById('root'));
-});
+function App() {
+  return (
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
+  );
+}
+
+ReactDOM.render(
+  <App/>,
+  document.getElementById('root'),
+);
