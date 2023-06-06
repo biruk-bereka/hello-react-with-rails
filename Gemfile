@@ -73,4 +73,4 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'rack-cors', :require => 'rack/cors'
+gem 'rack-cors', require: 'rack/cors'
