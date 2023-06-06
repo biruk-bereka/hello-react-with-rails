@@ -1,11 +1,8 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-function App() {
-  return (<h1>Hello World!</h1>);
-}
+import App from '../components/App'
 
-ReactDOM.render(
-  <App/>,
-  document.getElementById('root'),
-);
+document.addEventListener('DOMContentLoaded', () => {
+    ReactDOM.render(<App />, document.getElementById('root'));
+});
